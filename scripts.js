@@ -6,17 +6,15 @@ async function fetchContent() {
     .then((json) => updateHTML(json))
 }
 
+// Shuffle courtesy of https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
   
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
   
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
   
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -36,7 +34,6 @@ function updateHTML(json) {
     // Add correct answer to the first element of the randomly shuffled array
     document.getElementById(options[0]).innerHTML = json.results[0].correct_answer
     correctAns = options[0]
-    console.log("Correct answer: " + options[0])
 
     // Add the rest of the options
     document.getElementById(options[1]).innerHTML = json.results[0].incorrect_answers[0]
@@ -76,6 +73,7 @@ function resetAllButtons() {
     $("#option4").removeClass().addClass("btn btn-outline-primary w-100")
 }
 
+// jQuery onClick listeners 
 $("#option1").on("click", () => {
     disableButtons(true)
     if ("option1" == correctAns) {
