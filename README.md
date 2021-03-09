@@ -1,6 +1,8 @@
 # Random trivia website
 This website acts as a front-end for API requests made from `https://opentdb.com/`. API calls are made and the received JSON is rendered to the front-end. 
 
+![Image](images/landing.png)
+
 ## Frameworks used:
 - Javascript
 - Bootstrap
